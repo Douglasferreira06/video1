@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            position: relative;
+            width: 300px;
+            height: 280px;
+        }
+
+        .video{
+            width: 100%;
+           height: 100%;
+        }
+
+        .controle{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 0.5s;
+           
+        }
+
+        .btn{
+            position: relative;
+            top: 200px;
+            padding: 15px;
+
+        }
+
+        .btn:hover{
+          background-color: aquamarine;
+          border-radius: 50px;
+          
+        }
+
+        
+    </style>
+</head>
+<body> 
+    <div class="container" id="video-container">
+
+
+        <video class="video"  preload="auto"  loop height="540px" src="./PROJETO/WhatsApp Video 2024-06-26 at 13.54.07.mp4" poster="./PROJETO/615qr8PNw0L._AC_SX679_.jpg"  ></video >
+            <div id="controls"   class="controle">
+            <img    class="btn" onclick="retroceder()" src="./PROJETO/botao-retroceder.png" alt="retroceder">
+            <img    class="btn" onclick="pausa()" src="./PROJETO/pausa.png" alt="pausa">
+            <img    class="btn" onclick="play()" src="./PROJETO/marketing-de-video.png" alt="play">
+            <img    class="btn" onclick="avanca()" src="./PROJETO/avanco-rapido.png" alt="">
+        </div>
+        </div>
+
+
+       
+        <script> 
+        let video = document.querySelector("video")
+        let videoContainer = document.getElementById("video-container")
+        let controls = document.getElementById("controls");
+        
+        videoContainer.addEventListener("mouseover", function() {
+            controls.style.opacity = 1; // Torna os controles visíveis
+        });
+        
+        videoContainer.addEventListener("mouseout", function() {
+            controls.style.opacity = 0; // Torna os controles invisíveis
+        });
+        function retoceder(){
+            video.currentTime -= 5
+        }
+        
+        function pausa(){
+            video.pause();
+            video.currentTime = 0;
+        }
+        
+        function play (){
+            video.play();
+        }
+        
+        
+        function avanca(){
+            video.currentTime +=5
+            
+        } </script>
+        
+    </body>
+    </html>  
